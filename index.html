@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stolar Miloš</title>
+<meta name="description" content="Stolar Miloš, Beograd — nameštaj po meri: američki plakari, kuhinje, TV komode i dnevne sobe. Izrada i montaža. Pozovite 061/26 63 952.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: radionički crtež — kotne linije i lenjir kao jedini ukras, fotografije radova nose stranu */
+:root{
+  --bg:#ECEDE8; --surface:#F7F7F3; --fg:#1C1D1A; --muted:#5C5F57; --line:#C9CBC2;
+  --oak:#8F5A2B; --oak-ink:#FFFFFF; --pencil:#D9A72E;
+  --f-display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
+  --f-body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --wrap:1180px; color-scheme:light;
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+img{max-width:100%}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:1.0625rem;line-height:1.6;margin:0}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,32px)}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;line-height:1;text-transform:uppercase;letter-spacing:.01em;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pencil);outline-offset:3px}
+.mono{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+/* lenjir */
+.ruler{height:14px;background:
+  repeating-linear-gradient(90deg,var(--fg) 0 1px,transparent 1px 10px) bottom/100% 5px no-repeat,
+  repeating-linear-gradient(90deg,var(--fg) 0 1px,transparent 1px 50px) bottom/100% 9px no-repeat,
+  repeating-linear-gradient(90deg,var(--fg) 0 2px,transparent 2px 100px) bottom/100% 14px no-repeat;
+  opacity:.55;border-bottom:1px solid var(--fg)}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{font-family:var(--f-display);font-weight:700;font-size:1.6rem;text-transform:uppercase;text-decoration:none;letter-spacing:.02em;display:flex;align-items:baseline;gap:.4em}
+.logo span{color:var(--oak)}
+nav{display:flex;gap:22px;align-items:center}
+nav a.lnk{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--muted)}
+nav a.lnk:hover{color:var(--fg)}
+.btn{display:inline-flex;align-items:center;gap:.6em;background:var(--oak);color:var(--oak-ink);font-family:var(--f-display);font-weight:600;font-size:1.15rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:.55em 1.1em;border:0;border-radius:2px;cursor:pointer;transition:transform .15s,filter .15s}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 2px var(--fg)}
+.btn svg{width:1em;height:1em}
+@media (max-width:760px){nav a.lnk{display:none}.logo{font-size:1.35rem}.bar .btn{font-size:1rem;padding:.5em .8em}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(36px,7vw,80px)}
+.hero>*{min-width:0}
+.hero h1{font-size:clamp(3rem,8.4vw,6.4rem);line-height:.9}
+.hero h1 em{font-style:normal;color:var(--oak)}
+.dim{display:flex;align-items:center;gap:10px;margin-block:22px 26px;color:var(--fg)}
+.dim i{flex:1;height:1px;background:currentColor;position:relative}
+.dim i::before,.dim i::after{content:"";position:absolute;top:-6px;width:1px;height:13px;background:currentColor}
+.dim i::before{left:0}.dim i::after{right:0}
+.dim b{font-family:var(--f-mono);font-weight:500;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.lead{font-size:1.2rem;max-width:34ch;color:var(--muted)}
+.lead strong{color:var(--fg)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero-photo{position:relative;padding:0 0 0 34px}
+.hero-photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px}
+.vdim{position:absolute;left:0;top:0;bottom:0;width:22px;display:flex;flex-direction:column;align-items:center}
+.vdim i{flex:1;width:1px;background:var(--fg);position:relative}
+.vdim i::before,.vdim i::after{content:"";position:absolute;left:-6px;height:1px;width:13px;background:var(--fg)}
+.vdim i::before{top:0}.vdim i::after{bottom:0}
+.vdim b{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--f-mono);font-weight:500;font-size:.72rem;letter-spacing:.1em;padding-block:8px}
+.stamp{position:absolute;right:-8px;bottom:22px;background:var(--pencil);color:#1C1D1A;font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:1.05rem;line-height:1.05;padding:10px 14px;transform:rotate(-3deg);box-shadow:0 6px 18px rgba(0,0,0,.18)}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.hero-photo img{aspect-ratio:4/3}.stamp{right:8px}}
+
+/* sekcije */
+section{padding-block:clamp(48px,8vw,96px)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:36px}
+.sec-head h2{font-size:clamp(2.2rem,5vw,3.6rem)}
+.sec-head p{max-width:42ch;color:var(--muted)}
+
+/* usluge */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--fg)}
+.svc article{padding:22px 22px 26px 0;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.svc article+article{padding-left:22px}
+.svc article:last-child{border-right:0}
+.svc svg{width:44px;height:44px;stroke:var(--oak);fill:none;stroke-width:1.6}
+.svc h3{font-size:1.6rem}
+.svc p{color:var(--muted);font-size:1rem}
+@media (max-width:900px){.svc{grid-template-columns:1fr 1fr}.svc article{padding:22px 18px 26px 0;border-bottom:1px solid var(--line)}.svc article:nth-child(2n){border-right:0;padding-left:18px}.svc article:nth-child(2n+1){padding-left:0}}
+@media (max-width:520px){.svc{grid-template-columns:1fr}.svc article,.svc article:nth-child(2n){border-right:0;padding-left:0}}
+
+/* galerija */
+.radovi{background:var(--surface);border-block:1px solid var(--line)}
+.grid{columns:3 280px;column-gap:14px}
+.grid figure{margin:0 0 14px;break-inside:avoid;position:relative;cursor:zoom-in;overflow:hidden;border-radius:2px}
+.grid img{display:block;width:100%;height:auto;transition:transform .4s}
+.grid figure:hover img{transform:scale(1.03)}
+.grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;color:#fff;font-weight:600;font-size:.95rem;background:linear-gradient(transparent,rgba(0,0,0,.72))}
+.grid button{all:unset;display:block;cursor:zoom-in}
+.grid button:focus-visible{outline:3px solid var(--pencil);outline-offset:-3px}
+
+/* proces */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.steps li{list-style:none;padding:0 20px 0 0;position:relative}
+.steps li::before{counter-increment:s;content:"0" counter(s);font-family:var(--f-display);font-weight:700;font-size:3.4rem;color:var(--oak);line-height:1;display:block;margin-bottom:8px}
+.steps li::after{content:"";position:absolute;top:1.6rem;left:3.6rem;right:20px;height:1px;background:var(--line)}
+.steps li:last-child::after{display:none}
+.steps h3{font-size:1.45rem;margin-bottom:6px}
+.steps p{color:var(--muted);font-size:1rem}
+.steps{padding:0;margin:0}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr;row-gap:32px}.steps li::after{display:none}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+
+/* poziv */
+.call{background:var(--fg);color:var(--bg)}
+.call .inner{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.call .inner>*{min-width:0}
+.call h2{font-size:clamp(2.4rem,6vw,4.4rem)}
+.call p{opacity:.8;margin-top:14px;max-width:38ch}
+.phone-box{border:2px solid var(--bg);padding:24px;display:flex;flex-direction:column;gap:14px}
+.phone-box .mono{color:var(--bg);opacity:.7}
+.num{font-family:var(--f-display);font-weight:700;font-size:clamp(2.4rem,7vw,3.6rem);line-height:1;letter-spacing:.02em;user-select:all;color:var(--bg);text-decoration:none}
+.phone-box .row{display:flex;gap:8px}
+.phone-box .row .btn{flex:1 1 0;justify-content:center;min-width:0;padding:.6em .4em;font-size:clamp(.9rem,3.6vw,1.15rem);white-space:nowrap}
+.copy{background:transparent;color:var(--bg);box-shadow:inset 0 0 0 2px var(--bg)}
+@media (max-width:760px){.call .inner{grid-template-columns:1fr}}
+
+footer{padding-block:28px;display:flex;justify-content:space-between;align-items:center;gap:14px 24px;flex-wrap:wrap}
+.foot-name{white-space:nowrap;font-size:clamp(.62rem,2.9vw,.78rem);letter-spacing:.04em}
+.credit{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--muted)}
+.credit:hover{color:var(--fg)}
+.credit svg{width:34px;height:34px;flex:none}
+.credit b{display:block;font-family:var(--f-display);font-weight:600;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--fg);line-height:1.1}
+.credit small{display:block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(10,10,8,.92);display:flex;align-items:center;justify-content:center;padding:16px}
+.lb img{max-height:86vh;max-width:100%;object-fit:contain}
+.lb p{position:absolute;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:16px;right:16px;text-align:center;color:#fff;font-weight:600}
+.lb button{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;width:48px;height:48px;font-size:1.6rem;cursor:pointer;border-radius:2px}
+.lb .x{top:calc(14px + env(safe-area-inset-top,0px));right:14px}
+.lb .pv{left:12px;top:50%;transform:translateY(-50%)}
+.lb .nx{right:12px;top:50%;transform:translateY(-50%)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top">Stolar <span>Miloš</span></a>
+    <nav>
+      <a class="lnk" href="#usluge">Usluge</a>
+      <a class="lnk" href="#radovi">Radovi</a>
+      <a class="lnk" href="#kako">Kako radimo</a>
+      <a class="btn" href="tel:+381612663952"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>Pozovite</a>
+    </nav>
+  </div>
+  <div class="ruler" aria-hidden="true"></div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <p class="mono">Stolar · Beograd · izrada i montaža</p>
+      <h1 style="margin-top:14px">Nameštaj<br>po <em>vašoj</em><br>meri</h1>
+      <div class="dim" aria-hidden="true"><i></i><b>vaše dimenzije · vaše želje</b><i></i></div>
+      <p class="lead">Pravimo <strong>američke plakare, kuhinje, TV komode i dnevne sobe</strong> tačno za vaš prostor u Beogradu i okolini, uključujući niše, kosine i prostor ispod stepenica.</p>
+      <div class="cta-row">
+        <a class="btn" href="tel:+381612663952">061/26 63 952</a>
+        <a class="btn ghost" href="#radovi">Pogledajte radove</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="vdim" aria-hidden="true"><i></i><b>visina do plafona</b><i></i></div>
+      <img src="slike/plakar-stepenice.jpg" alt="Ugradni plakar u dekoru hrasta ispod stepeništa, sa vratima koja prate nagib stepenica" width="1050" height="1400">
+      <div class="stamp">Besplatne<br>konsultacije</div>
+    </div>
+  </div>
+
+  <section id="usluge">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Šta izrađujemo</h2>
+        <p>Svaki komad se crta i seče po meri, zato iskorišćava svaki centimetar prostora.</p>
+      </div>
+      <div class="svc">
+        <article>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="5" width="34" height="38"/><path d="M24 5v38M7 13h34M20 25v6M28 25v6"/></svg>
+          <h3>Američki plakari</h3>
+          <p>Ugradni plakari od poda do plafona, sa kliznim ili krilnim vratima. I za kosine i prostor ispod stepenica.</p>
+        </article>
+        <article>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 26h40v17H4zM4 26v-4h40v4M6 5h36v11H6zM24 26v17M10 34h8M30 34h8"/><circle cx="31" cy="23.5" r="1.2"/></svg>
+          <h3>Kuhinje</h3>
+          <p>Kuhinje po meri, od malih niša do L i U rasporeda, sa ugradnom tehnikom i LED rasvetom.</p>
+        </article>
+        <article>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="6" width="28" height="18"/><path d="M4 30h40v10H4zM17 30v10M31 30v10M8 40v3M40 40v3"/></svg>
+          <h3>TV komode i dnevne sobe</h3>
+          <p>TV zidovi, komode i police usklađeni sa vašom dnevnom sobom, u dekoru koji izaberete.</p>
+        </article>
+        <article>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 40 30 16M28 10l10 10-4 4-10-10zM6 40l4 2 2-6"/><path d="M34 34h8M38 30v8"/></svg>
+          <h3>Izrada i montaža</h3>
+          <p>Dolazimo na adresu u Beogradu, merimo, izrađujemo u radionici i montiramo. Jedan majstor od prvog poziva do poslednjeg šarafa.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="radovi" class="radovi">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Naši radovi</h2>
+        <p class="mono">Kliknite na sliku za uvećanje</p>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="kako">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Kako radimo</h2>
+        <p>Brzo, profesionalno i povoljno, bez iznenađenja na kraju.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Poziv</h3><p>Javite se telefonom i ukratko opišite šta vam treba.</p></li>
+        <li><h3>Merenje i dogovor</h3><p>Dolazimo, merimo prostor i zajedno biramo dekor, okove i raspored.</p></li>
+        <li><h3>Izrada</h3><p>Nameštaj se izrađuje u radionici, tačno po dogovorenim merama.</p></li>
+        <li><h3>Montaža</h3><p>Montiramo kod vas i ostavljamo prostor spreman za korišćenje.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="call" id="kontakt">
+    <div class="wrap inner">
+      <div>
+        <h2>Imate prostor? Mi imamo meru.</h2>
+        <p>Pozovite za dogovor i besplatne konsultacije. Kažite nam dimenzije i želje, a mi predlažemo rešenje.</p>
+      </div>
+      <div class="phone-box">
+        <span class="mono">Telefon · Miloš · Beograd</span>
+        <a class="num" href="tel:+381612663952" id="num">061/26 63 952</a>
+        <div class="row">
+          <a class="btn" href="tel:+381612663952">Pozovite</a>
+          <a class="btn copy" href="viber://chat?number=%2B381612663952">Viber</a>
+          <button class="btn copy" type="button" id="copyBtn">Kopiraj</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="wrap">
+  <footer>
+    <span class="mono foot-name">Stolar Miloš · nameštaj po meri · Beograd</span>
+    <a class="credit" href="https://www.instagram.com/studiovlacic/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#141821"/><circle cx="20" cy="20" r="16.5" fill="none" stroke="#C9A24A" stroke-width="1.3"/><path d="M20 10c-1 4-4 7-7.5 11M20 10c1.5 4 4 7 6.5 10" fill="none" stroke="#C9A24A" stroke-width="1.2" stroke-linecap="round"/><path d="M20 10c2-1.5 4.5-1.5 6 0-2 1.2-4 1.2-6 0z" fill="#C9A24A"/><circle cx="12.5" cy="24" r="4.3" fill="#B0182E"/><circle cx="26.5" cy="23.5" r="4.3" fill="#B0182E"/><circle cx="11.2" cy="22.6" r="1" fill="#fff" opacity=".6"/><circle cx="25.2" cy="22.1" r="1" fill="#fff" opacity=".6"/></svg>
+      <span><small>Izrada</small><b>Studio Vlačić</b></span>
+    </a>
+  </footer>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Uvećana slika">
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+  <button class="x" id="lbX" aria-label="Zatvori">×</button>
+  <button class="pv" id="lbP" aria-label="Prethodna">‹</button>
+  <button class="nx" id="lbN" aria-label="Sledeća">›</button>
+</div>
+
+<script>
+const IMG=window.IMG||{};const src=f=>IMG[f]||`slike/${f}.jpg`;
+const radovi=[
+ ["kuhinja-roze","Kuhinja u beloj i roze mat izvedbi, sa LED rasvetom",1050,1400],
+ ["plakar-kosina","Plakar koji prati kosinu stepeništa",840,605],
+ ["klizni-plakar","Američki plakar sa kliznim vratima",1050,1400],
+ ["kuhinja-svetla","Kuhinja u dekoru svetlog drveta",1400,1050],
+ ["plakar-beli","Ugradni beli plakar do plafona, sa integrisanim ručkama",788,1400],
+ ["kupatilo-orah","Kupatilski element sa lavaboom, dekor orah",1050,1400],
+ ["kuhinja-bez","Mala kuhinja u bež mat izvedbi",788,1400],
+ ["stepenice-hrast","Stepenice od hrasta sa naizmeničnim gazištima",1050,1400],
+ ["plakar-stepenice","Plakar ispod stepenica u dekoru hrasta",1050,1400],
+ ["sobna-vrata","Ugradnja sobnih vrata",1400,1050]
+];
+const grid=document.getElementById('grid');
+radovi.forEach(([f,c,w,h],i)=>{
+  const fig=document.createElement('figure');
+  fig.innerHTML=`<button type="button" aria-label="Uvećaj: ${c}"><img src="${src(f)}" alt="${c}" width="${w}" height="${h}" loading="lazy"></button><figcaption>${c}</figcaption>`;
+  fig.querySelector('button').addEventListener('click',()=>open(i));
+  grid.appendChild(fig);
+});
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap');
+let cur=0,last=null;
+function show(i){cur=(i+radovi.length)%radovi.length;const [f,c]=radovi[cur];lbImg.src=src(f);lbImg.alt=c;lbCap.textContent=c;}
+function open(i){last=document.activeElement;show(i);lb.hidden=false;document.getElementById('lbX').focus();}
+function close(){lb.hidden=true;last&&last.focus();}
+document.getElementById('lbX').onclick=close;
+document.getElementById('lbP').onclick=()=>show(cur-1);
+document.getElementById('lbN').onclick=()=>show(cur+1);
+lb.addEventListener('click',e=>{if(e.target===lb)close();});
+document.addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
+
+document.getElementById('copyBtn').addEventListener('click',function(){
+  const b=this,done=()=>{b.textContent='Kopirano';setTimeout(()=>b.textContent='Kopiraj',1800)};
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('num'));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Označen';};
+  try{navigator.clipboard.writeText('0612663952').then(done,sel)}catch(e){sel()}
+});
+</script>
+
+</body>
+</html>
